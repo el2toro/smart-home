@@ -23,5 +23,11 @@ export class AppComponent {
       this.matIconRegistry.addSvgIcon('volume-off', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/volume-off.svg'));
       this.matIconRegistry.addSvgIcon('volume-low', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/volume-low.svg'));
       this.matIconRegistry.addSvgIcon('volume-high', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/volume-high.svg'));
+
+      this.matIconRegistry.addSvgIcon('drops', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/drops.svg'));
+      this.matIconRegistry.addSvgIcon('fluent-temperature', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/fluent-temperature.svg'));
+      this.matIconRegistry.addSvgIcon('park-lightning', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/park-lightning.svg'));
+      this.matIconRegistry.addSvgIcon('pluged-in', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/pluged-in.svg'));
+      this.matIconRegistry.addSvgIcon('wave', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/wave.svg'));
     }
 }

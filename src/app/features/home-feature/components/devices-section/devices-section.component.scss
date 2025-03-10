@@ -1,0 +1,128 @@
+.devices{
+    margin-top: 20px;
+
+    .info{
+        display: flex;
+        gap: 10px;
+
+        .info-item{
+            border: 1px solid;
+            border-radius: 15px;
+            padding: 10px;
+
+
+            p{
+                font-size: 1rem;
+                color: var(--light);
+                font-family: var(--pro-jakarta-font-family);
+            }
+
+            .description{
+                display: flex;
+                margin-top: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                h3{
+                    font-size: 2.25rem;
+                    color: var(--light);
+                    font-family: var(--pro-jakarta-font-family);
+                    font-weight: 600;
+                }
+
+                mat-icon{
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+    }
+
+    .device-section{
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+
+        .device{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 15px;
+
+            .heading{
+                display: flex;
+                gap: 38px;
+
+                .name{
+                    p{
+                       font-size: 1.25rem;
+                       color: var(--light);
+                       font-family: var(--pro-jakarta-font-family);
+                    }
+    
+                    p+p{
+                        font-size: 0.9rem;
+                        color: rgb(219, 205, 205);
+                    }
+                }
+
+                .buttons{
+                    display: grid;
+    
+                    button{
+                       background-color: transparent;
+                       border: none;
+    
+                       &:hover{
+                        cursor: pointer;
+                        opacity: 0.9;
+                       }
+                    }
+                }
+            }         
+
+            .image{     
+                display: flex;
+                justify-content: center;    
+                margin-top: -20px; 
+                     
+                img{        
+                    width: 150px;
+                    height: 150px;
+                }  
+            }
+
+            &:last-child{
+                .buttons{
+                    margin-left: -10px;
+                }
+            }
+
+            &:first-child{
+               .image{
+                
+                img{
+                    width: 200px;
+                    height: 200px;
+                    position: absolute;
+                    margin-top: -170px;
+                }
+               }
+            }
+
+            &:nth-child(2){
+                .image{
+                 
+                 img{
+                    position: absolute;
+                    margin-top: -155px;
+                 }
+                }
+            }
+            
+        }
+    }
+}

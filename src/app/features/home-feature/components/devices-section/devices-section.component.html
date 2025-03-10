@@ -1,3 +1,32 @@
-<p>
-  devices-section works!
-</p>
+<div class="devices">
+  <div class="info">
+   <div class="info-item" *ngFor="let item of infoItems">
+     <p>{{item.name}}</p>
+     <div class="description">
+       <h3>{{item.description}}</h3>
+       <mat-icon svgIcon="{{item.icon}}"></mat-icon>
+     </div>
+   </div>
+  </div>
+  <div class="device-section">
+   <div class="device" *ngFor="let device of devices">
+    <div class="heading">
+      <div class="name">
+        <p>{{device.name}}</p>
+        <p>{{device.description}}</p>
+      </div>
+      <div class="buttons">
+        <button>
+          <mat-icon svgIcon="wave"></mat-icon>
+        </button>
+        <button>
+          <mat-icon svgIcon="pluged-in"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="image">
+       <img src="{{device.image}}" alt="img">
+    </div>
+   </div>
+  </div>
+</div>
