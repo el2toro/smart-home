@@ -24,6 +24,7 @@ export class MusicPlayerSectionComponent implements OnInit {
       waveColor: '#7D7474',
       progressColor: '#0166FF',
       barWidth: 2,
+      height: 80,
       cursorColor: 'transparent'
     })
 

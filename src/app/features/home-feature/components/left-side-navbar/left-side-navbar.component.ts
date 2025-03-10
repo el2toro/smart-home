@@ -11,5 +11,4 @@ export class LeftSideNavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
