@@ -1,13 +1,17 @@
 .time-section{
+    display:  flex;
+    flex-direction: column;
+    gap: 10px;
+
     .first-section{
         display: flex;
-        gap: 20px;
+        gap: 10px;
 
         .time{
             width: 251px;
             height: 138px;
             padding: 20px;
-            border: 1px solid;
+            border: 1px solid var(--grey-dark);
             border-radius: 15px;
 
 
@@ -26,7 +30,7 @@
 
         .temperature{
             padding: 20px;
-            border: 1px solid;
+            border: 1px solid var(--grey-dark);
             border-radius: 15px;
             text-align: end;
 
@@ -36,13 +40,14 @@
                 align-items: center;
                 gap: 10px;
 
-                img{
+                mat-icon{
                    width: 10px;
                 }
              
                 p{
                     font-size: 0.75rem;
-                    color: var(--grey-light);
+                    color: var(--light);
+                    font-family: var(--pro-jakarta-font-family);
                 }
             }
           
@@ -51,21 +56,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 50px;
+            gap: 20px;
 
-            img{
-
+            mat-icon{
+                height: 60px;
+                width: 60px;
             }
 
             h3{
                 font-size: 2.6rem;
                 color: var(--light);
+                font-family: var(--pro-jakarta-font-family);
             }
           }
 
           p{
             font-size: 0.75rem;
             color: var(--grey-light);
+            font-family: var(--pro-jakarta-font-family);
           }
         }
     }
@@ -75,7 +83,7 @@
         gap: 10px;
 
         .devices{
-            border: 1px solid var(--light);
+            border: 1px solid var(--grey-dark);
             border-radius: 10px;
             padding: 15px;
 
@@ -100,14 +108,12 @@
                     }
                 }
 
-                img{
-
+                mat-icon{
+                   height: 35px;
+                   width: 35px;
                 }
             }
 
-            button{
-
-            }
         }
     }
 }

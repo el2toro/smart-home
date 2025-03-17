@@ -1,17 +1,17 @@
 <div class="time-section">
  <div class="first-section">
    <div class="time">
-    <p>05 Mart, 2025</p>
-    <h3>08:00</h3>
+    <p>{{date | date: 'dd MMMM, yyyy'}}</p>
+    <h3>{{date | date: 'hh:mm'}}</h3>
    </div>
    <div class="temperature">
     <div class="location">
-      <img src="assets/svg/location.svg" alt="position">
+      <mat-icon svgIcon="location"></mat-icon>
       <p>Chisinau</p>
     </div>
     <div class="grades">
-      <img src="assets/svg/sun-cloud.svg" alt="sun">
-      <h3>28 C</h3>
+      <mat-icon svgIcon="sun-cloud"></mat-icon>
+      <h3>28° C</h3>
     </div>
     <p>Outdoor Temperature</p>
    </div>
@@ -23,7 +23,7 @@
           <p>{{ device.name }}</p>
           <p>{{ device.description }}</p>
          </div>
-         <img src="{{ device.icon }}" alt="icon">
+         <mat-icon svgIcon="{{ device.icon }}"></mat-icon>
        </div>
        <app-toggle-switch (switch)="switchOnOff($event)"></app-toggle-switch>
     </div>
