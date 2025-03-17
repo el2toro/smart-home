@@ -7,9 +7,66 @@
      <app-toggle-switch (switch)="switchOnOff($event)"></app-toggle-switch>
   </div>
 
-  <div class="air-control">
-    <input class="volume-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+  <div class="container">
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <!-- Outer Circle -->
+      <circle cx="100" cy="100" r="90" stroke="#ddd" stroke-width="10" fill="none" />
+  
+      <!-- Progress Arc -->
+      <path
+        [attr.d]="arcPath"
+        stroke="blue"
+        stroke-width="10"
+        fill="none"
+        stroke-linecap="round"
+      ></path>
+  
+      <!-- Pointer (Draggable) -->
+      <circle
+      class="pointer"
+        [attr.cx]="pointerX"
+        [attr.cy]="pointerY"
+        r="8"
+        fill="red"
+        (mousedown)="startDrag($event)"
+        (touchstart)="startDrag($event)"
+      />
+    </svg>
+  
+    <p>Progress: {{ progress }}%</p>
   </div>
+  
+  
+
+  <!-- <div class="center">
+    <div class="slider">
+
+       <div class="pointer">
+          
+        </div> 
+
+      <!-- <div class="knob">
+       <div class="rotator">
+          <div class="text">0</div>
+        </div> -->
+        <!-- <div class="pointer">
+          <span class="material-icons">></span>
+        </div> 
+      </div> 
+
+      <svg width="200" height="200">
+       <circle cx="100" cy="100" r="90"></circle>
+       <circle cx="100" cy="100" r="90" id="circle2" ></circle>
+       <defs>circle2 style style="stroke: url(#gradient); stroke-width: 16px; stroke-linecap: round"
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+           <stop offset="0%" style="stop-color: red;"></stop>
+           <stop offset="50%" style="stop-color: orange;"></stop>
+           <stop offset="100%" style="stop-color: rgb(29, 209, 94);"></stop>
+        </linearGradient>
+       </defs> 
+      </svg>
+    </div>
+  </div> -->
 
   <div class="fan-control">
 

@@ -14,6 +14,14 @@ export class AppComponent {
 
   constructor(private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer){
+      this.matIconRegistry.addSvgIcon('location', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/location.svg'));
+      this.matIconRegistry.addSvgIcon('sun-cloud', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/sun-cloud.svg'));
+      this.matIconRegistry.addSvgIcon('light-bulb', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/light-bulb.svg'));
+      this.matIconRegistry.addSvgIcon('air-cond', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/air-cond.svg'));
+      this.matIconRegistry.addSvgIcon('wifi', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/wifi.svg'));  
+      this.matIconRegistry.addSvgIcon('siri', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/siri.svg'));  
+      this.matIconRegistry.addSvgIcon('microphone', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/microphone.svg'));  
+      this.matIconRegistry.addSvgIcon('notification', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/notification.svg'));   
 
       this.matIconRegistry.addSvgIcon('play', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/play.svg'));
       this.matIconRegistry.addSvgIcon('forward-step', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/forward-step.svg'));

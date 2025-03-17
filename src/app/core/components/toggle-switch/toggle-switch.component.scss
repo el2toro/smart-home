@@ -2,8 +2,9 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 55px;
+    height: 28px;
+    margin-top: 10px;
   }
   
   /* Hide default HTML checkbox */
@@ -14,7 +15,7 @@
   }
   
   /* The slider */
-  .slider {
+  .slider { 
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -29,10 +30,10 @@
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 22px;
+    width: 22px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: #a9a9a9;
     -webkit-transition: .4s;
     transition: .4s;
@@ -58,7 +59,7 @@
   
   /* Rounded sliders */
   .slider.round {
-    border-radius: 34px;
+    border-radius: 30px;
   }
   
   .slider.round:before {
