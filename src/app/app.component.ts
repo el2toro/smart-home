@@ -37,5 +37,12 @@ export class AppComponent {
       this.matIconRegistry.addSvgIcon('park-lightning', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/park-lightning.svg'));
       this.matIconRegistry.addSvgIcon('pluged-in', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/pluged-in.svg'));
       this.matIconRegistry.addSvgIcon('wave', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/wave.svg'));
+
+      this.matIconRegistry.addSvgIcon('house', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/house.svg'));
+      this.matIconRegistry.addSvgIcon('grid', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/grid.svg'));
+      this.matIconRegistry.addSvgIcon('shield', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/shield.svg'));
+      this.matIconRegistry.addSvgIcon('video', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/video.svg'));
+      this.matIconRegistry.addSvgIcon('lightning', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/lightning.svg'));
+      this.matIconRegistry.addSvgIcon('gear', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/gear.svg'));
     }
 }

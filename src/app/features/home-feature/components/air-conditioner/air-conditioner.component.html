@@ -4,36 +4,29 @@
       <h3>Air Conditioner</h3>
       <p>Sharp 209-KY</p>
      </div>
-     <app-toggle-switch (switch)="switchOnOff($event)"></app-toggle-switch>
+     <app-toggle-switch [isOn]="isOn" (switch)="switchOnOff($event)"></app-toggle-switch>
   </div>
 
   <div class="container">
     <svg width="200" height="200" viewBox="0 0 200 200">
       <!-- Outer Circle -->
-      <circle cx="100" cy="100" r="90" stroke="#ddd" stroke-width="10" fill="none" />
+      <circle class="first-circle" cx="100" cy="100" r="90"/>
   
       <!-- Progress Arc -->
-      <path
-        [attr.d]="arcPath"
-        stroke="blue"
-        stroke-width="10"
-        fill="none"
-        stroke-linecap="round"
-      ></path>
+      <path [attr.d]="arcPath"></path>
   
       <!-- Pointer (Draggable) -->
       <circle
-      class="pointer"
+        class="pointer"
         [attr.cx]="pointerX"
         [attr.cy]="pointerY"
         r="8"
-        fill="red"
         (mousedown)="startDrag($event)"
         (touchstart)="startDrag($event)"
       />
     </svg>
   
-    <p>Progress: {{ progress }}%</p>
+    <!-- <p>Progress: {{ progress }}%</p> -->
   </div>
   
   

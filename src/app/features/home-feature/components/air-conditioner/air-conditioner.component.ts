@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ToggleSwitchComponent } from "../../../../core/components/toggle-switch/toggle-switch.component";
+import { SignalRService } from '../../../../services/signalr.service';
 
 @Component({
   selector: 'app-air-conditioner',
@@ -23,16 +24,37 @@ export class AirConditionerComponent implements OnInit {
   dragging = false;
   pointer: any;
 
-  constructor() { }
+  device: string = '';
+  message: string = 'This is test for signalR';
+
+  isOn!: boolean;
+
+  constructor(private signalRService: SignalRService) { }
 
   ngOnInit() {
     //this.configureSliderProgress();
    
     this.updatePointer();
+
+    this.signalRService.startConnection();
+     this.addMessageListener();
+  }
+
+  public addMessageListener = () => {
+    this.signalRService.getHubConnection().on('ReceiveMessage', (isOn: boolean) => {
+      //Update switch toggle on and off
+      this.isOn = isOn
+      console.log(isOn);
+    });
+  }
+
+  sendMessage(event: any) {
+    this.signalRService.sendMessage(event);
+    this.message = '';  // Clear the input after sending
   }
 
   switchOnOff($event: any) {
-    throw new Error('Method not implemented.');
+    this.sendMessage($event);
   }
 
   configureSliderProgress(){
@@ -86,23 +108,19 @@ export class AirConditionerComponent implements OnInit {
 
   updatePointer() {
     // Convert angle to radians, ensuring 0° is at the bottom
-    let angleRad = (this.angle - 90) * (Math.PI / 180);
-
-    this.pointer = document.querySelector('.pointer') as HTMLElement;
+    let angleRad = (this.angle - 100) * (Math.PI / 180);
 
     // Calculate pointer position
     this.pointerX = this.centerX + this.radius * Math.cos(angleRad);
     this.pointerY = this.centerY + this.radius * Math.sin(angleRad);
-    //this.pointerX = this.pointer?.getBoundingClientRect().left;
-    //this.pointerY = this.pointer?.getBoundingClientRect().top;
-
+ 
     console.log(this.pointerX, this.pointerY)
 
     // Convert angle (0-360) to progress (0-100%)
     this.progress = Math.round((this.angle / 270) * 100);
 
     // Update progress arc path
-    this.arcPath = this.describeArc(this.centerX, this.centerY, this.radius, - 0, this.angle - 0);
+    this.arcPath = this.describeArc(this.centerX, this.centerY, this.radius,  -this.pointerX, this.angle - this.pointerY);
   }
 
   startDrag(event: MouseEvent | TouchEvent) {
@@ -120,9 +138,19 @@ export class AirConditionerComponent implements OnInit {
     // Calculate angle based on pointer movement
     let dx = clientX - this.centerX;
     let dy = clientY - this.centerY;
+
+    let angleRad = Math.atan2(dy, dx);
+    let angleDeg = (angleRad * 100 / Math.PI);
+
+    let rotationAngle = (angleDeg - 135  + 360) % 360;
+
+         if(rotationAngle <= 270){
+          this.angle = rotationAngle
+         }
+           //pointer.style.transform = `rotate(${rotationAngle}deg)`;
     
     // Convert to degrees (Adjusting so 0° starts at the bottom)
-    this.angle = (Math.atan2(dy, dx) * (180 / Math.PI) + 450) % 360;
+    //this.angle = (Math.atan2(dy, dx) * (180 / Math.PI) + 460) % 360;
 
     this.updatePointer();
   }
@@ -142,12 +170,10 @@ export class AirConditionerComponent implements OnInit {
   }
 
   polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {
-    let angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    let angleInRadians = (angleInDegrees - 180) * Math.PI / 180.0;
     return {
       x: centerX + (radius * Math.cos(angleInRadians)),
       y: centerY + (radius * Math.sin(angleInRadians))
     };
   }
-  
-
 }
