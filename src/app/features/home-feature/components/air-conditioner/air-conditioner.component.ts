@@ -24,9 +24,6 @@ export class AirConditionerComponent implements OnInit {
   dragging = false;
   pointer: any;
 
-  device: string = '';
-  message: string = 'This is test for signalR';
-
   isOn!: boolean;
 
   constructor(private signalRService: SignalRService) { }
@@ -50,7 +47,6 @@ export class AirConditionerComponent implements OnInit {
 
   sendMessage(event: any) {
     this.signalRService.sendMessage(event);
-    this.message = '';  // Clear the input after sending
   }
 
   switchOnOff($event: any) {
@@ -103,8 +99,6 @@ export class AirConditionerComponent implements OnInit {
      this.isRotating = false;
     });
   }
-
-
 
   updatePointer() {
     // Convert angle to radians, ensuring 0° is at the bottom
